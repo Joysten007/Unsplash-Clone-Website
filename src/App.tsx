@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Search from './components/images/search';
+import StickyPage from './components/stickyPage';
+import Login from './components/Login';
+import { isJsxElement } from 'typescript';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+        <>
+          <Routes>
+            <Route path="/" element={<Search/>} />
+            <Route path="/" element={<StickyPage/>} />
+            <Route path="/Login" element={<Login />} />
+          </Routes>
+        </>
+    </BrowserRouter>
   );
 }
 
